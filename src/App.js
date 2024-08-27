@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import Hoom from "./pages/Hoom"
+import Header from "./component/header/Header";
+import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration} from "react-router-dom";
+import Footer from "./component/footer/Footer";
+import Cart from "./component/header/Cart";
+import { productsData } from "./api/Api";
+import ProductDetails from "./component/productDetails/ProductDetails";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Layout = ()=>{
+    return(
+      <div>
+        <Header/>
+        <ScrollRestoration/>
+        <Outlet/>
+        <Footer/>
+      </div>
+    )
+}
+
+const router = createBrowserRouter([
+    {
+      path:'/',
+      element:<Layout/>,
+      children:[
+        {
+          path:"/",
+          element:<Hoom/>,
+          loader: productsData
+        },
+        {
+          path:'/product/:id',
+          element:<ProductDetails/>
+        },
+        {
+          path:"/cart",
+          element:<Cart/>
+        }
+      ]
+    }
+])
+function App( ) {
+    return(
+      <Fragment>
+          <RouterProvider router={router}/>
+      </Fragment>
+    )
 }
 
 export default App;
