@@ -24,6 +24,7 @@ function Footer() {
                   <FaTwitter />
                   <FaInstagram />
                 </div>
+                <p className={classes["copy-rigth"]}>@ Ashrah salah</p>
             </div>
 
             <div className={classes.contact}>

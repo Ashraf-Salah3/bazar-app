@@ -1,7 +1,7 @@
 .slider{
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     overflow: hidden;
 }
 .banner{
@@ -16,7 +16,13 @@
 }
 .banner img{
     height: 100%;
+    width: 100%;
 } 
+@media screen and (max-width : 600px){
+    .slider{
+        height: 40vh;
+    }
+}
 .current{
     opacity: 1;
     transform: translateX(0);

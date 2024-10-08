@@ -52,10 +52,22 @@
     border: 1px solid white;
     padding: .7rem;
     color: white;
+    outline: none;
 }
 .input button{
     background-color: transparent;
     border: 1px solid white;
     padding: 10px;
     color: white;
+    cursor: pointer;
+}
+.copy-rigth{
+    font-family: "Caveat", cursive;
+}
+@media screen and (max-width:600px) {
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
